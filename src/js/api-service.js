@@ -20,9 +20,6 @@ export class ApiService {
     });
 
     try {
-      // if (response.status !== 200) {
-      //   throw new Error(error, 'Unable to get images');
-      // }
       const {
         data: { hits, totalHits },
       } = await axios.get('/', { params });
