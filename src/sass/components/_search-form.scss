@@ -1,0 +1,36 @@
+.search-form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.search-form > button {
+  color: #2f55ee;
+  background-color: aliceblue;
+}
+
+.search-form > button:disabled {
+  opacity: 1;
+  background-color: rgb(180, 182, 183);
+  color: rgb(99, 99, 99);
+  pointer-events: none;
+}
+
+.search-form > button:hover,
+.search-form > button:focus,
+.search-form > button:active {
+  background-color: rgb(195, 226, 254);
+}
+
+.search-form > input {
+  width: 200px;
+}
+
+button {
+  border-radius: 4px;
+  width: 120px;
+  padding: 6px 8px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
