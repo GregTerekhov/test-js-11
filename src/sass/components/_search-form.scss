@@ -1,7 +1,14 @@
 .search-form {
+  position: fixed;
+  width: 100%;
+  padding: 30px 0;
+  background-color: rgba(47, 85, 238, 0.75);
   display: flex;
   justify-content: center;
   gap: 20px;
+  z-index: 2;
+  top: 0;
+  left: 0;
 }
 
 .search-form > button {
