@@ -21,18 +21,9 @@ function onSearch(e) {
   apiService.resetPage();
   clearGallery();
   if (!apiService.query) {
-    return Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.'
-    );
-  }
-  getResults();
-}
-
-function checkInputQuery(totalHits) {
-  if (apiService.query === '') {
     return Notify.failure('Please enter a search word.');
   }
-  Notify.success(`Hooray! We found ${totalHits} images.`);
+  getResults();
 }
 
 function getResults() {
@@ -43,7 +34,12 @@ function getResults() {
 export function renderImages() {
   apiService.getImages().then(({ hits, totalHits }) => {
     if (apiService.page === 1) {
-      checkInputQuery(totalHits);
+      if (apiService.query === '' || !totalHits) {
+        return Notify.failure(
+          'Sorry, there are no images matching your search query. Please try again.'
+        );
+      }
+      Notify.success(`Hooray! We found ${totalHits} images.`);
     }
 
     imagesTemplate(hits);
